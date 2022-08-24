@@ -1,0 +1,254 @@
+$pri: #7bbcb5;
+$sec: #49726e; //? Darken
+$bgr: #fdfcff;
+
+@media (prefers-color-scheme: dark) {
+    $bgr: #1a171a !global;
+}
+
+@mixin object($width, $height, $background) {
+	width: $width;
+	height: $height;
+	background: $background;
+}
+
+@mixin absolute($top, $right, $bottom, $left, $transform) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    transform: $transform;
+}
+
+::selection {
+    background-color: $pri;
+    color: $bgr;
+}
+
+::-webkit-scrollbar {
+    @include object(10px, null, $pri);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $sec;
+    border: $pri 3px solid;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border-width: 2px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: $pri;
+
+    background: {
+        color: $pri;
+        image: url("background.webp");
+        position: center;
+        attachment: fixed;
+        repeat: no-repeat;
+        size: cover;
+    }
+
+    font: {
+        family: "Segoe UI";
+        size: 1.3em;
+    }
+}
+
+nav {
+    @include object(100%, 100px, $pri);
+    box-sizing: border-box;
+    position: sticky;
+    display: flex;
+    top: 0;
+    margin-top: 25px;
+    padding: 0 20px;
+    align-items: center;
+    z-index: 1;
+    box-shadow: 0 -25px $pri, 0 15px 25px -10px #00000040;
+}
+
+.title {
+    display: inherit;
+    align-items: inherit;
+    color: $sec;
+    text-decoration: none;
+    user-select: none;
+
+    img {
+        float: left;
+        @include object(50px, 50px, null);
+    }
+
+    h1 {
+        float: right;
+        margin-left: 20px;
+    }
+}
+
+.links {
+    margin-left: auto;
+
+    li {
+        display: inline;
+        margin-right: 2em;
+
+        a {
+            position: relative;
+            color: $sec;
+            text-decoration: none;
+
+            &::before {
+                @include object(0, 100%, $sec);
+                content: "";
+                position: absolute;
+                display: inline;
+                border-radius: 5px;
+                transition: .3s ease-in-out;
+            }
+
+            &:hover::before {
+                content: attr(name);
+                width: 100%;
+                color: $pri;
+            }
+        }
+    }
+}
+
+.menu {
+    @include object(50px, 50px, none);
+    display: none;
+    margin-left: auto;
+    padding: 0;
+    border: none;
+
+    div {
+        @include object(100%, 5px, $sec);
+        border-radius: 5px;
+        margin: 7px 0;
+        transition: .3s ease-in-out;
+    }
+
+    &.active div {
+        &:nth-child(1) {
+            transform: translateY(12px) rotate(-45deg);
+        }
+
+        &:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+            transform: translateY(-12px) rotate(-45deg);
+        }
+    }
+}
+
+header {
+    @include object(100%, calc(100vh - 250px), none);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+
+    h1 {
+        padding: 20px;
+        text-align: center;
+        color: $sec;
+        backdrop-filter: blur(10px);
+        border: 1px solid #fff5;
+        border-radius: 50px;
+    }
+}
+
+main {
+    margin: calc(100vh - 250px) 0 250px 0;
+    box-shadow: 0 0 25px 20px #00000040;
+
+    section {
+        @include object(100%, calc(100vh - 100px), $bgr);
+        box-sizing: border-box;
+        padding: 20px;
+    
+        //!! Under construction
+        * {
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        *.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    #Ipsum {
+        position: relative;
+        background-color: $sec;
+        color: $pri;
+
+        &::before, &::after {
+            content: "";
+            @include object(100%, 200px, $bgr);
+            @include absolute(null, 0, 0, null, null);
+        }
+
+        &::after {
+            border-radius: 0 0 100% 0;
+            background-color: inherit;
+        }
+    }
+
+    #Sit {
+        background-color: $pri;
+        color: $bgr;
+
+        ::selection {
+            background-color: $bgr;
+            color: $pri;
+        }
+    }
+}
+
+footer {
+    @include object(100%, 250px, none);
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media screen and (max-width: 760px) {
+    .links {
+        @include object(100%, null, $pri);
+        @include absolute(79px, null, null, 50%, translateX(-50%));
+        display: none;
+        text-align: center;
+        padding: 0;
+
+        li {
+            display: block;
+            margin-bottom: 2em;
+        }
+    }
+
+    .menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .title h1 {
+        display: none;
+    }
+}

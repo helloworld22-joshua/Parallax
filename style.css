@@ -1,0 +1,238 @@
+::-moz-selection {
+  background-color: #7bbcb5;
+  color: #1a171a;
+}
+
+::selection {
+  background-color: #7bbcb5;
+  color: #1a171a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #7bbcb5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #49726e;
+  border: #7bbcb5 3px solid;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-width: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #7bbcb5;
+  background-color: #7bbcb5;
+  background-image: url("background.webp");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Segoe UI";
+  font-size: 1.3em;
+}
+
+nav {
+  width: 100%;
+  height: 100px;
+  background: #7bbcb5;
+  box-sizing: border-box;
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  top: 0;
+  margin-top: 25px;
+  padding: 0 20px;
+  align-items: center;
+  z-index: 1;
+  box-shadow: 0 -25px #7bbcb5, 0 15px 25px -10px rgba(0, 0, 0, 0.2509803922);
+}
+
+.title {
+  display: inherit;
+  align-items: inherit;
+  color: #49726e;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.title img {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+.title h1 {
+  float: right;
+  margin-left: 20px;
+}
+
+.links {
+  margin-left: auto;
+}
+.links li {
+  display: inline;
+  margin-right: 2em;
+}
+.links li a {
+  position: relative;
+  color: #49726e;
+  text-decoration: none;
+}
+.links li a::before {
+  width: 0;
+  height: 100%;
+  background: #49726e;
+  content: "";
+  position: absolute;
+  display: inline;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+.links li a:hover::before {
+  content: attr(name);
+  width: 100%;
+  color: #7bbcb5;
+}
+
+.menu {
+  width: 50px;
+  height: 50px;
+  background: none;
+  display: none;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+}
+.menu div {
+  width: 100%;
+  height: 5px;
+  background: #49726e;
+  border-radius: 5px;
+  margin: 7px 0;
+  transition: 0.3s ease-in-out;
+}
+.menu.active div:nth-child(1) {
+  transform: translateY(12px) rotate(-45deg);
+}
+.menu.active div:nth-child(2) {
+  transform: rotate(45deg);
+}
+.menu.active div:nth-child(3) {
+  transform: translateY(-12px) rotate(-45deg);
+}
+
+header {
+  width: 100%;
+  height: calc(100vh - 250px);
+  background: none;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+header h1 {
+  padding: 20px;
+  text-align: center;
+  color: #49726e;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3333333333);
+  border-radius: 50px;
+}
+
+main {
+  margin: calc(100vh - 250px) 0 250px 0;
+  box-shadow: 0 0 25px 20px rgba(0, 0, 0, 0.2509803922);
+}
+main section {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background: #1a171a;
+  box-sizing: border-box;
+  padding: 20px;
+}
+main section * {
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+main section *.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+main #Ipsum {
+  position: relative;
+  background-color: #49726e;
+  color: #7bbcb5;
+}
+main #Ipsum::before, main #Ipsum::after {
+  content: "";
+  width: 100%;
+  height: 200px;
+  background: #1a171a;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+main #Ipsum::after {
+  border-radius: 0 0 100% 0;
+  background-color: inherit;
+}
+main #Sit {
+  background-color: #7bbcb5;
+  color: #1a171a;
+}
+main #Sit ::-moz-selection {
+  background-color: #1a171a;
+  color: #7bbcb5;
+}
+main #Sit ::selection {
+  background-color: #1a171a;
+  color: #7bbcb5;
+}
+
+footer {
+  width: 100%;
+  height: 250px;
+  background: none;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 760px) {
+  .links {
+    width: 100%;
+    background: #7bbcb5;
+    position: absolute;
+    top: 79px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    text-align: center;
+    padding: 0;
+  }
+  .links li {
+    display: block;
+    margin-bottom: 2em;
+  }
+  .menu {
+    display: block;
+  }
+}
+@media screen and (max-width: 300px) {
+  .title h1 {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
