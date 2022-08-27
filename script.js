@@ -11,7 +11,7 @@ function toggleMenu() {
     $(".menu, .links").toggleClass("active");
 }
 
-// 
+// Closes small menu when click somewhere (or on a link)
 $(window).click((e) => {
     if (!e.target.matches("nav *") || e.target.matches("nav a")) {
         toggleMenu();
