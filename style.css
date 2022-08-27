@@ -1,21 +1,21 @@
 ::-moz-selection {
-  background-color: #7bbcb5;
-  color: #1a171a;
+  background-color: hsl(174deg, 33%, 61%);
+  color: hsl(300deg, 6%, 10%);
 }
 
 ::selection {
-  background-color: #7bbcb5;
-  color: #1a171a;
+  background-color: hsl(174deg, 33%, 61%);
+  color: hsl(300deg, 6%, 10%);
 }
 
 ::-webkit-scrollbar {
   width: 10px;
-  background: #7bbcb5;
+  background: hsl(174deg, 33%, 61%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #49726e;
-  border: #7bbcb5 3px solid;
+  background-color: hsl(174deg, 22%, 37%);
+  border: hsl(174deg, 33%, 61%) 3px solid;
   border-radius: 5px;
 }
 
@@ -29,8 +29,8 @@ html {
 
 body {
   margin: 0;
-  color: #7bbcb5;
-  background-color: #7bbcb5;
+  color: hsl(174deg, 33%, 61%);
+  background-color: hsl(174deg, 33%, 61%);
   background-image: url("background.webp");
   background-position: center;
   background-attachment: fixed;
@@ -43,7 +43,7 @@ body {
 nav {
   width: 100%;
   height: 100px;
-  background: #7bbcb5;
+  background: hsl(174deg, 33%, 61%);
   box-sizing: border-box;
   position: -webkit-sticky;
   position: sticky;
@@ -54,13 +54,13 @@ nav {
   align-items: center;
   z-index: 1;
   transform-style: preserve-3d;
-  box-shadow: 0 -25px #7bbcb5, 0 15px 25px -10px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: 0 -25px hsl(174deg, 33%, 61%), 0 15px 25px -10px hsla(0deg, 0%, 0%, 0.3);
 }
 
 .title {
   display: inherit;
   align-items: inherit;
-  color: #49726e;
+  color: hsl(174deg, 22%, 37%);
   text-decoration: none;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -86,13 +86,13 @@ nav {
 }
 .links li a {
   position: relative;
-  color: #49726e;
+  color: hsl(174deg, 22%, 37%);
   text-decoration: none;
 }
 .links li a::before {
   width: 0;
   height: 100%;
-  background: #49726e;
+  background: hsl(174deg, 22%, 37%);
   content: "";
   position: absolute;
   display: inline;
@@ -102,7 +102,7 @@ nav {
 .links li a:hover::before {
   content: attr(name);
   width: 100%;
-  color: #7bbcb5;
+  color: hsl(174deg, 33%, 61%);
 }
 
 .menu {
@@ -117,7 +117,7 @@ nav {
 .menu div {
   width: 100%;
   height: 5px;
-  background: #49726e;
+  background: hsl(174deg, 22%, 37%);
   border-radius: 5px;
   margin: 7px 0;
   transition: 0.3s ease-in-out;
@@ -145,21 +145,21 @@ header {
 header h1 {
   padding: 20px;
   text-align: center;
-  color: #49726e;
+  color: hsl(174deg, 22%, 37%);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3333333333);
+  border: 1px solid hsla(0deg, 0%, 100%, 0.3);
   border-radius: 50px;
 }
 
 main {
   margin: calc(100vh - 250px) 0 250px 0;
-  box-shadow: 0 0 25px 20px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: 0 0 25px 20px hsla(0deg, 0%, 0%, 0.3);
 }
 main section {
   width: 100%;
   height: calc(100vh - 100px);
-  background: #1a171a;
+  background: hsl(300deg, 6%, 10%);
   box-sizing: border-box;
   padding: 20px;
 }
@@ -174,14 +174,14 @@ main section *.active {
 }
 main #Ipsum {
   position: relative;
-  background-color: #49726e;
-  color: #7bbcb5;
+  background-color: hsl(174deg, 22%, 37%);
+  color: hsl(174deg, 33%, 61%);
 }
 main #Ipsum::before, main #Ipsum::after {
   content: "";
   width: 100%;
   height: 200px;
-  background: #1a171a;
+  background: hsl(300deg, 6%, 10%);
   position: absolute;
   right: 0;
   bottom: 0;
@@ -191,16 +191,16 @@ main #Ipsum::after {
   background-color: inherit;
 }
 main #Sit {
-  background-color: #7bbcb5;
-  color: #1a171a;
+  background-color: hsl(174deg, 33%, 61%);
+  color: hsl(300deg, 6%, 10%);
 }
 main #Sit ::-moz-selection {
-  background-color: #1a171a;
-  color: #7bbcb5;
+  background-color: hsl(300deg, 6%, 10%);
+  color: hsl(174deg, 33%, 61%);
 }
 main #Sit ::selection {
-  background-color: #1a171a;
-  color: #7bbcb5;
+  background-color: hsl(300deg, 6%, 10%);
+  color: hsl(174deg, 33%, 61%);
 }
 
 footer {
@@ -215,7 +215,7 @@ footer {
 @media screen and (max-width: 760px) {
   .links {
     width: 100%;
-    background: #7bbcb5;
+    background: hsl(174deg, 33%, 61%);
     position: absolute;
     top: 79px;
     left: 50%;
