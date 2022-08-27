@@ -1,8 +1,3 @@
-// Toggle links in small menu (for phones)
-function toggleMenu() {
-    $(".menu, .links").toggleClass("active");
-}
-
 // Fixes links with sticky navbar
 $('a[href*="#"]').click(function (e) {
     e.preventDefault();
@@ -11,6 +6,17 @@ $('a[href*="#"]').click(function (e) {
     }, 0);
 });
 
+// Toggle links in small menu (for phones)
+function toggleMenu() {
+    $(".menu, .links").toggleClass("active");
+}
+
+// 
+$(window).click((e) => {
+    if (!e.target.matches("nav *") || e.target.matches("nav a")) {
+        toggleMenu();
+    }
+});
 
 // Smooth load in animation
 function reveal() {
