@@ -73,6 +73,7 @@ nav {
     padding: 0 20px;
     align-items: center;
     z-index: 1;
+    transform-style: preserve-3d;
     box-shadow: 0 -25px $pri, 0 15px 25px -10px #00000040;
 }
 
@@ -99,7 +100,7 @@ nav {
 
     li {
         display: inline;
-        margin-right: 2em;
+        padding-right: 2em;
 
         a {
             position: relative;
@@ -231,14 +232,18 @@ footer {
 @media screen and (max-width: 760px) {
     .links {
         @include object(100%, null, $pri);
-        @include absolute(79px, null, null, 50%, translateX(-50%));
-        display: none;
+        @include absolute(79px, null, null, 50%, translate3d(-50%, -100%, -1px));
         text-align: center;
         padding: 0;
+        transition: .3s ease-in-out;
+
+        &.active {
+            transform: translate3d(-50%, 0, -1px);
+        }
 
         li {
             display: block;
-            margin-bottom: 2em;
+            padding: 1.5rem;
         }
     }
 

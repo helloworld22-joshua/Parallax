@@ -1,7 +1,6 @@
 // Toggle links in small menu (for phones)
 function toggleMenu() {
-    $(".menu").toggleClass("active");
-    $(".links").toggle();
+    $(".menu, .links").toggleClass("active");
 }
 
 // Fixes links with sticky navbar

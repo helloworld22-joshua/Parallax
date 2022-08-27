@@ -53,6 +53,7 @@ nav {
   padding: 0 20px;
   align-items: center;
   z-index: 1;
+  transform-style: preserve-3d;
   box-shadow: 0 -25px #7bbcb5, 0 15px 25px -10px rgba(0, 0, 0, 0.2509803922);
 }
 
@@ -81,7 +82,7 @@ nav {
 }
 .links li {
   display: inline;
-  margin-right: 2em;
+  padding-right: 2em;
 }
 .links li a {
   position: relative;
@@ -218,14 +219,17 @@ footer {
     position: absolute;
     top: 79px;
     left: 50%;
-    transform: translateX(-50%);
-    display: none;
+    transform: translate3d(-50%, -100%, -1px);
     text-align: center;
     padding: 0;
+    transition: 0.3s ease-in-out;
+  }
+  .links.active {
+    transform: translate3d(-50%, 0, -1px);
   }
   .links li {
     display: block;
-    margin-bottom: 2em;
+    padding: 1.5rem;
   }
   .menu {
     display: block;
