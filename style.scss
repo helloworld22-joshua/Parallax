@@ -1,9 +1,13 @@
-$pri: hsl(174, 33%, 61%);
-$sec: hsl(174, 22%, 37%); //? Maybe darker
-$bgr: hsl(260, 100%, 99%);
+:root {
+    --pri: hsl(174, 33%, 61%);
+    --sec: hsl(174, 22%, 30%);
+    --bgr: hsl(260, 100%, 99%);
+}
 
 @media (prefers-color-scheme: dark) {
-    $bgr: hsl(300, 6%, 10%) !global;
+    :root {
+        --bgr: hsl(300, 6%, 10%);
+    }
 }
 
 @mixin object($width, $height, $background) {
@@ -22,17 +26,17 @@ $bgr: hsl(260, 100%, 99%);
 }
 
 ::selection {
-    background-color: $pri;
-    color: $bgr;
+    background-color: var(--pri);
+    color: var(--bgr);
 }
 
 ::-webkit-scrollbar {
-    @include object(10px, null, $pri);
+    @include object(10px, null, var(--pri));
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $sec;
-    border: $pri 3px solid;
+    background-color: var(--sec);
+    border: var(--pri) 3px solid;
     border-radius: 5px;
 }
 
@@ -46,10 +50,10 @@ html {
 
 body {
     margin: 0;
-    color: $pri;
+    color: var(--pri);
 
     background: {
-        color: $pri;
+        color: var(--pri);
         image: url("background.webp");
         position: center;
         attachment: fixed;
@@ -64,7 +68,7 @@ body {
 }
 
 nav {
-    @include object(100%, 100px, $pri);
+    @include object(100%, 100px, var(--pri));
     box-sizing: border-box;
     position: sticky;
     display: flex;
@@ -74,13 +78,13 @@ nav {
     align-items: center;
     z-index: 1;
     transform-style: preserve-3d;
-    box-shadow: 0 -25px $pri, 0 15px 25px -10px hsla(0, 0, 0, 0.3);
+    box-shadow: 0 -25px var(--pri), 0 15px 25px -10px hsla(0, 0, 0, 0.3);
 }
 
 .title {
     display: inherit;
     align-items: inherit;
-    color: $sec;
+    color: var(--sec);
     text-decoration: none;
     user-select: none;
 
@@ -104,11 +108,11 @@ nav {
 
         a {
             position: relative;
-            color: $sec;
+            color: var(--sec);
             text-decoration: none;
 
             &::before {
-                @include object(0, 100%, $sec);
+                @include object(0, 100%, var(--sec));
                 content: "";
                 position: absolute;
                 display: inline;
@@ -119,7 +123,7 @@ nav {
             &:hover::before {
                 content: attr(name);
                 width: 100%;
-                color: $pri;
+                color: var(--pri);
             }
         }
     }
@@ -133,7 +137,7 @@ nav {
     border: none;
 
     div {
-        @include object(100%, 5px, $sec);
+        @include object(100%, 5px, var(--sec));
         border-radius: 5px;
         margin: 7px 0;
         transition: .3s ease-in-out;
@@ -165,7 +169,7 @@ header {
     h1 {
         padding: 20px;
         text-align: center;
-        color: $sec;
+        color: var(--sec);
         backdrop-filter: blur(10px);
         border: 1px solid hsla(0, 0, 100%, 0.3);
         border-radius: 50px;
@@ -177,7 +181,7 @@ main {
     box-shadow: 0 0 25px 20px hsla(0, 0, 0, 0.3);
 
     section {
-        @include object(100%, calc(100vh - 100px), $bgr);
+        @include object(100%, calc(100vh - 100px), var(--bgr));
         box-sizing: border-box;
         padding: 20px;
     
@@ -196,12 +200,12 @@ main {
 
     #Ipsum {
         position: relative;
-        background-color: $sec;
-        color: $pri;
+        background-color: var(--sec);
+        color: var(--pri);
 
         &::before, &::after {
             content: "";
-            @include object(100%, 200px, $bgr);
+            @include object(100%, 200px, var(--bgr));
             @include absolute(null, 0, 0, null, null);
         }
 
@@ -212,12 +216,12 @@ main {
     }
 
     #Sit {
-        background-color: $pri;
-        color: $bgr;
+        background-color: var(--pri);
+        color: var(--bgr);
 
         ::selection {
-            background-color: $bgr;
-            color: $pri;
+            background-color: var(--bgr);
+            color: var(--pri);
         }
     }
 }
@@ -231,7 +235,7 @@ footer {
 
 @media screen and (max-width: 760px) {
     .links {
-        @include object(100%, null, $pri);
+        @include object(100%, null, var(--pri));
         @include absolute(79px, null, null, 50%, translate3d(-50%, -100%, -1px));
         text-align: center;
         padding: 0;
