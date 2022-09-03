@@ -135,13 +135,15 @@ nav {
   transition: 0.3s ease-in-out;
 }
 .menu.active div:nth-child(1) {
-  transform: translateY(12px) rotate(-45deg);
+  translate: 0 12px;
+  rotate: -45deg;
 }
 .menu.active div:nth-child(2) {
-  transform: rotate(45deg);
+  rotate: 45deg;
 }
 .menu.active div:nth-child(3) {
-  transform: translateY(-12px) rotate(-45deg);
+  translate: 0 -12px;
+  rotate: -45deg;
 }
 
 header {
@@ -172,12 +174,12 @@ main section {
   padding: 20px;
 }
 main section * {
-  transform: translateY(150px);
+  translate: 0 150px;
   opacity: 0;
   transition: 1s;
 }
 main section *.active {
-  transform: translateY(0);
+  translate: 0;
   opacity: 1;
 }
 main #curve {
