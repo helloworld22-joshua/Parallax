@@ -44,7 +44,7 @@ body {
   margin: 0;
   color: var(--sec);
   background-color: var(--pri);
-  background-image: url("background.webp");
+  background-image: url("media/background.webp");
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
