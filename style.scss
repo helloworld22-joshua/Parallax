@@ -182,7 +182,8 @@ main {
     box-shadow: 0 0 25px 20px hsla(0, 0, 0, 0.3);
 
     section {
-        @include object(100%, calc(100vh - 100px), var(--bgr));
+        @include object(100%, null, var(--bgr));
+        min-height: calc(100vh - 100px);
         box-sizing: border-box;
         padding: 20px;
     
@@ -198,21 +199,18 @@ main {
         }
     }
 
+    #curve {
+        @include object(100%, 100px, var(--bgr));
+
+        div {
+            @include object(inherit, inherit, var(--sec));
+            border-radius: 0 0 100% 0;
+        }
+    }
+
     #Ipsum {
-        position: relative;
         background-color: var(--sec);
         color: var(--pri);
-
-        &::before, &::after {
-            content: "";
-            @include object(100%, 200px, var(--bgr));
-            @include absolute(null, 0, 0, null, null);
-        }
-
-        &::after {
-            border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
-            background-color: inherit;
-        }
     }
 
     #Sit {
