@@ -7,14 +7,14 @@ $('a[href*="#"]').click(function (e) {
 });
 
 // Toggle links in small menu (for phones)
-function toggleMenu() {
+$(".menu").click(() => {
     $(".menu, .links").toggleClass("active");
-}
+})
 
 // Closes small menu when click somewhere (or on a link)
 $(window).click((e) => {
     if (!e.target.matches("nav *") || e.target.matches("nav a")) {
-        toggleMenu();
+        $(".menu, .links").removeClass("active");
     }
 });
 

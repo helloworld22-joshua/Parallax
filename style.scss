@@ -63,7 +63,7 @@ body {
 
     font: {
         family: "Segoe UI";
-        size: 1.3em;
+        size: 1.3rem;
     }
 }
 
@@ -104,7 +104,7 @@ nav {
 
     li {
         display: inline;
-        padding-right: 2em;
+        padding-right: 2rem;
 
         a {
             position: relative;
@@ -182,16 +182,15 @@ main {
         box-sizing: border-box;
         padding: 20px;
     
-        //!! Under construction
         * {
             transform: translateY(150px);
             opacity: 0;
-            transition: 1s all ease;
-        }
+            transition: 1s;
 
-        *.active {
-            transform: translateY(0);
-            opacity: 1;
+            &.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     }
 
