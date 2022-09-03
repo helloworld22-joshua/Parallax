@@ -259,6 +259,18 @@ footer a:hover {
   height: 75px;
   align-items: flex-end;
 }
+footer a:hover:nth-child(1) {
+  color: #f00;
+}
+footer a:hover:nth-child(2) {
+  color: #7289da;
+}
+footer a:hover:nth-child(3) {
+  color: #1da1f2;
+}
+footer a:hover:nth-child(4) {
+  color: #6e5494;
+}
 
 @media screen and (max-width: 760px) {
   .links {
