@@ -215,6 +215,7 @@ main #Dolor ::selection {
   background-color: var(--pri);
 }
 main #Sit {
+  position: relative;
   background-color: var(--pri);
   color: var(--bgr);
 }
