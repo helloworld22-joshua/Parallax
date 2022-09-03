@@ -196,7 +196,7 @@ main #Ipsum::before, main #Ipsum::after {
   bottom: 0;
 }
 main #Ipsum::after {
-  border-radius: 0 0 100% 0;
+  border-radius: 100% 0% 100% 0%/0% 50% 50% 100%;
   background-color: inherit;
 }
 main #Sit {
