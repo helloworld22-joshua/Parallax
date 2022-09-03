@@ -1,12 +1,16 @@
 :root {
     --pri: hsl(174, 33%, 61%);
     --sec: hsl(174, 22%, 30%);
-    --bgr: hsl(260, 100%, 99%);
+    --bgr: hsl(300, 6%, 99%);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --bgr: hsl(300, 6%, 10%);
+    }
+
+    body {
+        color: var(--pri) !important;
     }
 }
 
@@ -50,7 +54,7 @@ html {
 
 body {
     margin: 0;
-    color: var(--pri);
+    color: var(--sec);
 
     background: {
         color: var(--pri);
