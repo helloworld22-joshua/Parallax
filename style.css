@@ -233,6 +233,9 @@ footer {
   bottom: 0;
   z-index: -1;
 }
+footer p {
+  margin: 10px;
+}
 footer .fa-brands {
   width: 50px;
   height: 50px;
@@ -246,6 +249,7 @@ footer .fa-brands {
   font-size: 2rem;
   color: var(--alt);
   border-radius: 0 0 10px 10px;
+  box-shadow: 5px 5px 5px hsla(0deg, 0%, 0%, 0.3);
   transition: 0.3s;
 }
 footer .fa-brands:hover {
@@ -274,6 +278,15 @@ footer .fa-brands:hover {
   }
   .menu {
     display: block;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+  footer p {
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
   }
 }
 @media screen and (max-width: 300px) {
