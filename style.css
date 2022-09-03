@@ -2,22 +2,21 @@
   --pri: hsl(174, 33%, 61%);
   --sec: hsl(174, 22%, 30%);
   --bgr: hsl(300, 6%, 99%);
+  --alt: hsl(300, 6%, 10%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bgr: hsl(300, 6%, 10%);
-  }
-  body {
-    color: var(--pri) !important;
+    --alt: hsl(300, 6%, 99%);
   }
 }
 ::-moz-selection {
-  background-color: var(--pri);
+  background-color: var(--alt);
   color: var(--bgr);
 }
 ::selection {
-  background-color: var(--pri);
+  background-color: var(--alt);
   color: var(--bgr);
 }
 
@@ -42,7 +41,7 @@ html {
 
 body {
   margin: 0;
-  color: var(--sec);
+  color: var(--alt);
   background-color: var(--pri);
   background-image: url("media/background.webp");
   background-position: center;
@@ -68,6 +67,10 @@ nav {
   z-index: 1;
   transform-style: preserve-3d;
   box-shadow: 0 -25px var(--pri), 0 15px 25px -10px hsla(0deg, 0%, 0%, 0.3);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .title {
@@ -75,10 +78,6 @@ nav {
   align-items: inherit;
   color: var(--sec);
   text-decoration: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 .title img {
   float: left;
@@ -149,10 +148,10 @@ header {
   width: 100%;
   height: calc(100vh - 250px);
   background: none;
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
   z-index: -1;
 }
 header h1 {
@@ -196,6 +195,23 @@ main #Ipsum {
   background-color: var(--sec);
   color: var(--pri);
 }
+main #Ipsum ::-moz-selection {
+  background-color: var(--pri);
+  color: var(--sec);
+}
+main #Ipsum ::selection {
+  background-color: var(--pri);
+  color: var(--sec);
+}
+main #Dolor {
+  color: var(--pri);
+}
+main #Dolor ::-moz-selection {
+  background-color: var(--pri);
+}
+main #Dolor ::selection {
+  background-color: var(--pri);
+}
 main #Sit {
   background-color: var(--pri);
   color: var(--bgr);
@@ -216,6 +232,25 @@ footer {
   position: fixed;
   bottom: 0;
   z-index: -1;
+}
+footer .fa-brands {
+  width: 50px;
+  height: 50px;
+  background: var(--bgr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  padding: 10px;
+  float: right;
+  font-size: 2rem;
+  color: var(--alt);
+  border-radius: 0 0 10px 10px;
+  transition: 0.3s;
+}
+footer .fa-brands:hover {
+  height: 75px;
+  align-items: flex-end;
 }
 
 @media screen and (max-width: 760px) {

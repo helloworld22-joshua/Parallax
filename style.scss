@@ -2,15 +2,13 @@
     --pri: hsl(174, 33%, 61%);
     --sec: hsl(174, 22%, 30%);
     --bgr: hsl(300, 6%, 99%);
+    --alt: hsl(300, 6%, 10%);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --bgr: hsl(300, 6%, 10%);
-    }
-
-    body {
-        color: var(--pri) !important;
+        --alt: hsl(300, 6%, 99%);
     }
 }
 
@@ -29,8 +27,14 @@
     transform: $transform;
 }
 
+@mixin center {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 ::selection {
-    background-color: var(--pri);
+    background-color: var(--alt);
     color: var(--bgr);
 }
 
@@ -54,7 +58,7 @@ html {
 
 body {
     margin: 0;
-    color: var(--sec);
+    color: var(--alt);
 
     background: {
         color: var(--pri);
@@ -83,6 +87,7 @@ nav {
     z-index: 1;
     transform-style: preserve-3d;
     box-shadow: 0 -25px var(--pri), 0 15px 25px -10px hsla(0, 0, 0, 0.3);
+    user-select: none;
 }
 
 .title {
@@ -90,7 +95,6 @@ nav {
     align-items: inherit;
     color: var(--sec);
     text-decoration: none;
-    user-select: none;
 
     img {
         float: left;
@@ -164,10 +168,8 @@ nav {
 
 header {
     @include object(100%, calc(100vh - 250px), none);
+    @include center;
     position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: -1;
 
     h1 {
@@ -211,6 +213,19 @@ main {
     #Ipsum {
         background-color: var(--sec);
         color: var(--pri);
+
+        ::selection {
+            background-color: var(--pri);
+            color: var(--sec);
+        }
+    }
+
+    #Dolor {
+        color: var(--pri);
+
+        ::selection {
+            background-color: var(--pri);
+        }
     }
 
     #Sit {
@@ -229,6 +244,23 @@ footer {
     position: fixed;
     bottom: 0;
     z-index: -1;
+
+    .fa-brands {
+        @include object(50px, 50px, var(--bgr));
+        @include center;
+        margin-right: 10px;
+        padding: 10px;
+        float: right;
+        font-size: 2rem;
+        color: var(--alt);
+        border-radius: 0 0 10px 10px;
+        transition: .3s;
+
+        &:hover {
+            height: 75px;
+            align-items: flex-end;
+        }
+    }
 }
 
 @media screen and (max-width: 760px) {
