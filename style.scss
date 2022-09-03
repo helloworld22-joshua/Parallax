@@ -249,7 +249,7 @@ footer {
         margin: 10px;
     }
 
-    .fa-brands {
+    a {
         @include object(50px, 50px, var(--bgr));
         @include center;
         margin-right: 10px;
@@ -257,6 +257,7 @@ footer {
         float: right;
         font-size: 2rem;
         color: var(--alt);
+        text-decoration: none;
         border-radius: 0 0 10px 10px;
         box-shadow: 5px 5px 5px hsla(0, 0, 0, 0.3);
         transition: .3s;
