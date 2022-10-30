@@ -1,14 +1,14 @@
 :root {
-    --pri: hsl(174, 33%, 61%);
-    --sec: hsl(174, 22%, 30%);
-    --bgr: hsl(300, 6%, 99%);
-    --alt: hsl(300, 6%, 10%);
+    --pri: hsl(174 33% 61%);
+    --sec: hsl(174 22% 30%);
+    --bgr: hsl(300 6% 99%);
+    --alt: hsl(300 6% 10%);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bgr: hsl(300, 6%, 10%);
-        --alt: hsl(300, 6%, 99%);
+        --bgr: hsl(300 6% 10%);
+        --alt: hsl(300 6% 99%);
     }
 }
 
@@ -59,6 +59,7 @@ html {
 body {
     margin: 0;
     color: var(--alt);
+    overflow-x: hidden;
 
     background: {
         color: var(--pri);
@@ -86,7 +87,7 @@ nav {
     align-items: center;
     z-index: 1;
     transform-style: preserve-3d;
-    box-shadow: 0 -25px var(--pri), 0 15px 25px -10px hsla(0, 0, 0, 0.3);
+    box-shadow: 0 -25px var(--pri), 0 15px 25px -10px hsla(0 0 0 / .3);
     user-select: none;
 }
 
@@ -181,9 +182,38 @@ header {
     }
 }
 
+.image-view {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+    background-color: hsla(0 0 0 / .75);
+    cursor: pointer;
+
+    i {
+        position: inherit;
+        right: 0;
+        margin: 2rem;
+    }
+
+    img {
+        position: inherit;
+        width: inherit;
+        inset: 50%;
+        translate: -50% -50%;
+        cursor: auto;
+    }
+
+    &.active {
+        display: block;
+    }
+}
+
 main {
     margin: calc(100vh - 250px) 0 125px 0;
-    box-shadow: 0 0 25px 20px hsla(0, 0, 0, 0.3);
+    box-shadow: 0 0 25px 20px hsla(0 0 0 / .3);
 
     section {
         @include object(100%, null, var(--bgr));
@@ -203,12 +233,22 @@ main {
         }
     }
 
+    img {
+        cursor: pointer;
+    }
+
     #curve {
         @include object(100%, 100px, var(--bgr));
 
         div {
             @include object(inherit, inherit, var(--sec));
             border-radius: 0 0 100% 0;
+        }
+    }
+
+    #Lorem {
+        img {
+            width: 75%;
         }
     }
 
@@ -262,7 +302,7 @@ footer {
         color: var(--alt);
         text-decoration: none;
         border-radius: 0 0 10px 10px;
-        box-shadow: 5px 5px 5px hsla(0, 0, 0, 0.3);
+        box-shadow: 5px 5px 5px hsla(0 0 0 / .3);
         transition: .3s;
 
         &:hover {

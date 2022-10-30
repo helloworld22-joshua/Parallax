@@ -1,14 +1,14 @@
 :root {
-  --pri: hsl(174, 33%, 61%);
-  --sec: hsl(174, 22%, 30%);
-  --bgr: hsl(300, 6%, 99%);
-  --alt: hsl(300, 6%, 10%);
+  --pri: hsl(174 33% 61%);
+  --sec: hsl(174 22% 30%);
+  --bgr: hsl(300 6% 99%);
+  --alt: hsl(300 6% 10%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bgr: hsl(300, 6%, 10%);
-    --alt: hsl(300, 6%, 99%);
+    --bgr: hsl(300 6% 10%);
+    --alt: hsl(300 6% 99%);
   }
 }
 ::-moz-selection {
@@ -42,6 +42,7 @@ html {
 body {
   margin: 0;
   color: var(--alt);
+  overflow-x: hidden;
   background-color: var(--pri);
   background-image: url("media/background.webp");
   background-position: center;
@@ -162,6 +163,32 @@ header h1 {
   color: var(--sec);
 }
 
+.image-view {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+  background-color: hsla(0deg, 0%, 0%, 0.75);
+  cursor: pointer;
+}
+.image-view i {
+  position: inherit;
+  right: 0;
+  margin: 2rem;
+}
+.image-view img {
+  position: inherit;
+  width: inherit;
+  inset: 50%;
+  translate: -50% -50%;
+  cursor: auto;
+}
+.image-view.active {
+  display: block;
+}
+
 main {
   margin: calc(100vh - 250px) 0 125px 0;
   box-shadow: 0 0 25px 20px hsla(0deg, 0%, 0%, 0.3);
@@ -182,6 +209,9 @@ main section *.active {
   translate: 0;
   opacity: 1;
 }
+main img {
+  cursor: pointer;
+}
 main #curve {
   width: 100%;
   height: 100px;
@@ -192,6 +222,9 @@ main #curve div {
   height: inherit;
   background: var(--sec);
   border-radius: 0 0 100% 0;
+}
+main #Lorem img {
+  width: 75%;
 }
 main #Ipsum {
   background-color: var(--sec);
