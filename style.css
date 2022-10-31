@@ -73,36 +73,34 @@ nav {
       -ms-user-select: none;
           user-select: none;
 }
-
-.title {
+nav .title {
   display: inherit;
   align-items: inherit;
   color: var(--sec);
   text-decoration: none;
 }
-.title img {
+nav .title img {
   float: left;
   width: 50px;
   height: 50px;
 }
-.title h1 {
+nav .title h1 {
   float: right;
   margin-left: 20px;
 }
-
-.links {
+nav .links {
   margin-left: auto;
 }
-.links li {
+nav .links li {
   display: inline;
   padding-right: 2rem;
 }
-.links li a {
+nav .links li a {
   position: relative;
   color: var(--sec);
   text-decoration: none;
 }
-.links li a::before {
+nav .links li a::before {
   width: 0;
   height: 100%;
   background: var(--sec);
@@ -112,13 +110,12 @@ nav {
   border-radius: 5px;
   transition: 0.3s ease-in-out;
 }
-.links li a:hover::before {
+nav .links li a:hover::before {
   content: attr(name);
   width: 100%;
   color: var(--pri);
 }
-
-.menu {
+nav .menu {
   width: 50px;
   height: 50px;
   background: none;
@@ -127,7 +124,7 @@ nav {
   padding: 0;
   border: none;
 }
-.menu div {
+nav .menu div {
   width: 100%;
   height: 5px;
   background: var(--sec);
@@ -135,14 +132,14 @@ nav {
   margin: 7px 0;
   transition: 0.3s ease-in-out;
 }
-.menu.active div:nth-child(1) {
+nav .menu.active div:nth-child(1) {
   translate: 0 12px;
   rotate: -45deg;
 }
-.menu.active div:nth-child(2) {
+nav .menu.active div:nth-child(2) {
   rotate: 45deg;
 }
-.menu.active div:nth-child(3) {
+nav .menu.active div:nth-child(3) {
   translate: 0 -12px;
   rotate: -45deg;
 }
@@ -163,26 +160,34 @@ header h1 {
   color: var(--sec);
 }
 
+img {
+  cursor: pointer;
+}
+
 .image-view {
-  position: fixed;
-  display: none;
   width: 100%;
   height: 100%;
+  background: hsla(0deg, 0%, 0%, 0.75);
+  position: fixed;
+  display: none;
   top: 0;
   z-index: 1;
-  background-color: hsla(0deg, 0%, 0%, 0.75);
   cursor: pointer;
 }
 .image-view i {
   position: inherit;
+  width: 10px;
+  aspect-ratio: 1/1;
   right: 0;
   margin: 2rem;
 }
 .image-view img {
   position: inherit;
-  width: inherit;
+  width: 100%;
   inset: 50%;
   translate: -50% -50%;
+  -o-object-fit: contain;
+     object-fit: contain;
   cursor: auto;
 }
 .image-view.active {
@@ -209,9 +214,6 @@ main section *.active {
   translate: 0;
   opacity: 1;
 }
-main img {
-  cursor: pointer;
-}
 main #curve {
   width: 100%;
   height: 100px;
@@ -222,9 +224,6 @@ main #curve div {
   height: inherit;
   background: var(--sec);
   border-radius: 0 0 100% 0;
-}
-main #Lorem img {
-  width: 75%;
 }
 main #Ipsum {
   background-color: var(--sec);
@@ -237,6 +236,49 @@ main #Ipsum ::-moz-selection {
 main #Ipsum ::selection {
   background-color: var(--pri);
   color: var(--sec);
+}
+main #Ipsum .image-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 10vw);
+  grid-gap: 10px;
+}
+main #Ipsum .image-grid img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+main #Ipsum .image-grid .lake {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+main #Ipsum .image-grid .sunset {
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 7;
+}
+main #Ipsum .image-grid .water {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}
+main #Ipsum .image-grid .beach {
+  grid-column-start: 3;
+  grid-column-end: 7;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}
+main #Ipsum .image-grid .mountain {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  grid-row-start: 7;
+  grid-row-end: 9;
 }
 main #Dolor {
   color: var(--pri);

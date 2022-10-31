@@ -89,82 +89,82 @@ nav {
     transform-style: preserve-3d;
     box-shadow: 0 -25px var(--pri), 0 15px 25px -10px hsla(0 0 0 / .3);
     user-select: none;
-}
 
-.title {
-    display: inherit;
-    align-items: inherit;
-    color: var(--sec);
-    text-decoration: none;
-
-    img {
-        float: left;
-        @include object(50px, 50px, null);
+    .title {
+        display: inherit;
+        align-items: inherit;
+        color: var(--sec);
+        text-decoration: none;
+    
+        img {
+            float: left;
+            @include object(50px, 50px, null);
+        }
+    
+        h1 {
+            float: right;
+            margin-left: 20px;
+        }
     }
-
-    h1 {
-        float: right;
-        margin-left: 20px;
-    }
-}
-
-.links {
-    margin-left: auto;
-
-    li {
-        display: inline;
-        padding-right: 2rem;
-
-        a {
-            position: relative;
-            color: var(--sec);
-            text-decoration: none;
-
-            &::before {
-                @include object(0, 100%, var(--sec));
-                content: "";
-                position: absolute;
-                display: inline;
-                border-radius: 5px;
-                transition: .3s ease-in-out;
+    
+    .links {
+        margin-left: auto;
+    
+        li {
+            display: inline;
+            padding-right: 2rem;
+    
+            a {
+                position: relative;
+                color: var(--sec);
+                text-decoration: none;
+    
+                &::before {
+                    @include object(0, 100%, var(--sec));
+                    content: "";
+                    position: absolute;
+                    display: inline;
+                    border-radius: 5px;
+                    transition: .3s ease-in-out;
+                }
+    
+                &:hover::before {
+                    content: attr(name);
+                    width: 100%;
+                    color: var(--pri);
+                }
             }
-
-            &:hover::before {
-                content: attr(name);
-                width: 100%;
-                color: var(--pri);
+        }
+    }
+    
+    .menu {
+        @include object(50px, 50px, none);
+        display: none;
+        margin-left: auto;
+        padding: 0;
+        border: none;
+    
+        div {
+            @include object(100%, 5px, var(--sec));
+            border-radius: 5px;
+            margin: 7px 0;
+            transition: .3s ease-in-out;
+        }
+    
+        &.active div {
+            &:nth-child(1) {
+                translate: 0 12px;
+                rotate: -45deg;
             }
-        }
-    }
-}
-
-.menu {
-    @include object(50px, 50px, none);
-    display: none;
-    margin-left: auto;
-    padding: 0;
-    border: none;
-
-    div {
-        @include object(100%, 5px, var(--sec));
-        border-radius: 5px;
-        margin: 7px 0;
-        transition: .3s ease-in-out;
-    }
-
-    &.active div {
-        &:nth-child(1) {
-            translate: 0 12px;
-            rotate: -45deg;
-        }
-
-        &:nth-child(2) {
-            rotate: 45deg;
-        }
-
-        &:nth-child(3) {
-            translate: 0 -12px;
-            rotate: -45deg;
+    
+            &:nth-child(2) {
+                rotate: 45deg;
+            }
+    
+            &:nth-child(3) {
+                translate: 0 -12px;
+                rotate: -45deg;
+            }
         }
     }
 }
@@ -182,27 +182,32 @@ header {
     }
 }
 
+img {
+    cursor: pointer;
+}
+
 .image-view {
+    @include object(100%, 100%, hsla(0 0 0 / .75));
     position: fixed;
     display: none;
-    width: 100%;
-    height: 100%;
     top: 0;
     z-index: 1;
-    background-color: hsla(0 0 0 / .75);
     cursor: pointer;
 
     i {
         position: inherit;
+        width: 10px;
+        aspect-ratio: 1 / 1;
         right: 0;
         margin: 2rem;
     }
 
     img {
         position: inherit;
-        width: inherit;
+        width: 100%;
         inset: 50%;
         translate: -50% -50%;
+        object-fit: contain;
         cursor: auto;
     }
 
@@ -233,22 +238,12 @@ main {
         }
     }
 
-    img {
-        cursor: pointer;
-    }
-
     #curve {
         @include object(100%, 100px, var(--bgr));
 
         div {
             @include object(inherit, inherit, var(--sec));
             border-radius: 0 0 100% 0;
-        }
-    }
-
-    #Lorem {
-        img {
-            width: 75%;
         }
     }
 
@@ -259,6 +254,55 @@ main {
         ::selection {
             background-color: var(--pri);
             color: var(--sec);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 10vw);
+            grid-gap: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .lake {
+                grid: {
+                    column: {start: 1; end: 7}
+                    row: {start: 1; end: 5}
+                }
+            }
+
+            .sunset {
+                grid: {
+                    column: {start: 7; end: 9}
+                    row: {start: 1; end: 7}
+                }
+            }
+
+            .water {
+                grid: {
+                    column: {start: 1; end: 3}
+                    row: {start: 5; end: 7}
+                }
+            }
+
+            .beach {
+                grid: {
+                    column: {start: 3; end: 7}
+                    row: {start: 5; end: 7}
+                }
+            }
+
+            .mountain {
+                grid: {
+                    column: {start: 1; end: 9}
+                    row: {start: 7; end: 9}
+                }
+            }
         }
     }
 

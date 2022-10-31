@@ -30,18 +30,19 @@ function reveal() {
     }
 }
 
+window.addEventListener("scroll", reveal);
+
 // View Photo
 let view = $(".image-view");
 
 $("img").click((e) => {
     $(".image-view img").attr("src", e.target.getAttribute("src"));
-    view.addClass("active");
     $("body").css("overflow-y", "hidden");
+    view.addClass("active");
 });
 
-view.click(() => {
-    view.removeClass("active");
+$(".image-view").on("click", function(e) {
+    if (e.target.tagName == "IMG") return;
     $("body").css("overflow-y", "auto");
+    view.removeClass("active");
 });
-
-window.addEventListener("scroll", reveal);
