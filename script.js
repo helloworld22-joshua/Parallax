@@ -1,8 +1,8 @@
 // Fixes links with sticky navbar
-$('a[href*="#"]').click(function (e) {
+$("a[href*='#']").click(function (e) {
     e.preventDefault();
-    $('html').animate({
-        scrollTop: $($(this).attr('href')).offset().top - 100
+    $("html").animate({
+        scrollTop: $($(this).attr("href")).offset().top - 100
     }, 0);
 });
 
@@ -32,17 +32,14 @@ function reveal() {
 
 window.addEventListener("scroll", reveal);
 
-// View Photo
-let view = $(".image-view");
-
+// View Images
 $("img").click((e) => {
-    $(".image-view img").attr("src", e.target.getAttribute("src"));
+    $(".image-viewer img").attr("src", e.target.getAttribute("src"));
     $("body").css("overflow-y", "hidden");
-    view.addClass("active");
+    $(".image-viewer").show();
 });
 
-$(".image-view").on("click", function(e) {
-    if (e.target.tagName == "IMG") return;
+$(".close").click(() => {
     $("body").css("overflow-y", "auto");
-    view.removeClass("active");
+    $(".image-viewer").hide();
 });
