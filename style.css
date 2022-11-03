@@ -3,6 +3,7 @@
   --sec: hsl(174 22% 30%);
   --bgr: hsl(300 6% 99%);
   --alt: hsl(300 6% 10%);
+  --trns: .3s ease-in-out;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -88,20 +89,19 @@ nav .title h1 {
   float: right;
   margin-left: 20px;
 }
-
-.links {
+nav .links {
   margin-left: auto;
 }
-.links li {
+nav .links li {
   display: inline;
   padding-right: 2rem;
 }
-.links li a {
+nav .links li a {
   position: relative;
   color: var(--sec);
   text-decoration: none;
 }
-.links li a::before {
+nav .links li a::before {
   width: 0;
   height: 100%;
   background: var(--sec);
@@ -109,15 +109,14 @@ nav .title h1 {
   position: absolute;
   display: inline;
   border-radius: 5px;
-  transition: 0.3s ease-in-out;
+  transition: var(--trns);
 }
-.links li a:hover::before {
+nav .links li a:hover::before {
   content: attr(name);
   width: 100%;
   color: var(--pri);
 }
-
-.menu {
+nav .menu {
   width: 50px;
   height: 50px;
   background: none;
@@ -126,22 +125,22 @@ nav .title h1 {
   padding: 0;
   border: none;
 }
-.menu div {
+nav .menu div {
   width: 100%;
   height: 5px;
   background: var(--sec);
   border-radius: 5px;
   margin: 7px 0;
-  transition: 0.3s ease-in-out;
+  transition: var(--trns);
 }
-.menu.active div:nth-child(1) {
+nav .menu.active div:nth-child(1) {
   translate: 0 12px;
   rotate: -45deg;
 }
-.menu.active div:nth-child(2) {
+nav .menu.active div:nth-child(2) {
   rotate: 45deg;
 }
-.menu.active div:nth-child(3) {
+nav .menu.active div:nth-child(3) {
   translate: 0 -12px;
   rotate: -45deg;
 }
@@ -162,7 +161,7 @@ header h1 {
   color: var(--sec);
 }
 
-.image-viewer {
+#image-viewer {
   width: 100%;
   height: 100%;
   background: hsla(0deg, 0%, 0%, 0.75);
@@ -171,7 +170,7 @@ header h1 {
   top: 0;
   z-index: 1;
 }
-.image-viewer .close {
+#image-viewer .close {
   position: inherit;
   width: 10px;
   aspect-ratio: 1/1;
@@ -179,16 +178,16 @@ header h1 {
   margin: 2rem;
   cursor: pointer;
 }
-.image-viewer img {
-  position: inherit;
+#image-viewer img {
   width: 100%;
   height: 100%;
+  position: inherit;
   inset: 50%;
   translate: -50% -50%;
   -o-object-fit: contain;
      object-fit: contain;
-  -webkit-animation: zoom-in 0.3s ease-out;
-          animation: zoom-in 0.3s ease-out;
+  -webkit-animation: zoom-in 0.3s;
+          animation: zoom-in 0.3s;
 }
 
 @-webkit-keyframes zoom-in {
@@ -343,7 +342,7 @@ footer a {
   text-decoration: none;
   border-radius: 0 0 10px 10px;
   box-shadow: 5px 5px 5px hsla(0deg, 0%, 0%, 0.3);
-  transition: 0.3s;
+  transition: var(--trns);
 }
 footer a:hover {
   height: 75px;
@@ -363,7 +362,7 @@ footer a:hover:nth-child(4) {
 }
 
 @media screen and (max-width: 760px) {
-  .links {
+  nav .links {
     width: 100%;
     background: var(--pri);
     position: absolute;
@@ -372,16 +371,16 @@ footer a:hover:nth-child(4) {
     transform: translate3d(-50%, -100%, -1px);
     text-align: center;
     padding: 0;
-    transition: 0.3s ease-in-out;
+    transition: var(--trns);
   }
-  .links.active {
+  nav .links.active {
     transform: translate3d(-50%, 0, -1px);
   }
-  .links li {
+  nav .links li {
     display: block;
     padding: 1.5rem;
   }
-  .menu {
+  nav .menu {
     display: block;
   }
   footer {

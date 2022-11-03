@@ -3,6 +3,7 @@
     --sec: hsl(174 22% 30%);
     --bgr: hsl(300 6% 99%);
     --alt: hsl(300 6% 10%);
+    --trns: .3s ease-in-out;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -106,65 +107,65 @@ nav {
             margin-left: 20px;
         }
     }
-}
 
-.links {
-    margin-left: auto;
-
-    li {
-        display: inline;
-        padding-right: 2rem;
-
-        a {
-            position: relative;
-            color: var(--sec);
-            text-decoration: none;
-
-            &::before {
-                @include object(0, 100%, var(--sec));
-                content: "";
-                position: absolute;
-                display: inline;
-                border-radius: 5px;
-                transition: .3s ease-in-out;
-            }
-
-            &:hover::before {
-                content: attr(name);
-                width: 100%;
-                color: var(--pri);
+    .links {
+        margin-left: auto;
+    
+        li {
+            display: inline;
+            padding-right: 2rem;
+    
+            a {
+                position: relative;
+                color: var(--sec);
+                text-decoration: none;
+    
+                &::before {
+                    @include object(0, 100%, var(--sec));
+                    content: "";
+                    position: absolute;
+                    display: inline;
+                    border-radius: 5px;
+                    transition: var(--trns);
+                }
+    
+                &:hover::before {
+                    content: attr(name);
+                    width: 100%;
+                    color: var(--pri);
+                }
             }
         }
     }
-}
 
-.menu {
-    @include object(50px, 50px, none);
-    display: none;
-    margin-left: auto;
-    padding: 0;
-    border: none;
-
-    div {
-        @include object(100%, 5px, var(--sec));
-        border-radius: 5px;
-        margin: 7px 0;
-        transition: .3s ease-in-out;
-    }
-
-    &.active div {
-        &:nth-child(1) {
-            translate: 0 12px;
-            rotate: -45deg;
+    .menu {
+        @include object(50px, 50px, none);
+        display: none;
+        margin-left: auto;
+        padding: 0;
+        border: none;
+    
+        div {
+            @include object(100%, 5px, var(--sec));
+            border-radius: 5px;
+            margin: 7px 0;
+            transition: var(--trns);
         }
-
-        &:nth-child(2) {
-            rotate: 45deg;
-        }
-
-        &:nth-child(3) {
-            translate: 0 -12px;
-            rotate: -45deg;
+    
+        &.active div {
+            &:nth-child(1) {
+                translate: 0 12px;
+                rotate: -45deg;
+            }
+    
+            &:nth-child(2) {
+                rotate: 45deg;
+            }
+    
+            &:nth-child(3) {
+                translate: 0 -12px;
+                rotate: -45deg;
+            }
         }
     }
 }
@@ -182,7 +183,7 @@ header {
     }
 }
 
-.image-viewer {
+#image-viewer {
     @include object(100%, 100%, hsla(0 0 0 / .75));
     position: fixed;
     display: none;
@@ -199,13 +200,12 @@ header {
     }
 
     img {
+        @include object(100%, 100%, null);
         position: inherit;
-        width: 100%;
-        height: 100%;
         inset: 50%;
         translate: -50% -50%;
         object-fit: contain;
-        animation: zoom-in .3s ease-out;
+        animation: zoom-in .3s;
     }
 }
 
@@ -261,8 +261,7 @@ main {
             grid-gap: 10px;
 
             img {
-                width: 100%;
-                height: 100%;
+                @include object(100%, 100%, null);
                 object-fit: cover;
                 border-radius: 10px;
             }
@@ -345,7 +344,7 @@ footer {
         text-decoration: none;
         border-radius: 0 0 10px 10px;
         box-shadow: 5px 5px 5px hsla(0 0 0 / .3);
-        transition: .3s;
+        transition: var(--trns);
 
         &:hover {
             height: 75px;
@@ -371,25 +370,27 @@ footer {
 }
 
 @media screen and (max-width: 760px) {
-    .links {
-        @include object(100%, null, var(--pri));
-        @include absolute(79px, null, null, 50%, translate3d(-50%, -100%, -1px));
-        text-align: center;
-        padding: 0;
-        transition: .3s ease-in-out;
-
-        &.active {
-            transform: translate3d(-50%, 0, -1px);
+    nav {
+        .links {
+            @include object(100%, null, var(--pri));
+            @include absolute(79px, null, null, 50%, translate3d(-50%, -100%, -1px));
+            text-align: center;
+            padding: 0;
+            transition: var(--trns);
+    
+            &.active {
+                transform: translate3d(-50%, 0, -1px);
+            }
+    
+            li {
+                display: block;
+                padding: 1.5rem;
+            }
         }
-
-        li {
+    
+        .menu {
             display: block;
-            padding: 1.5rem;
         }
-    }
-
-    .menu {
-        display: block;
     }
 
     footer {

@@ -34,12 +34,12 @@ window.addEventListener("scroll", reveal);
 
 // View Images
 $("img").click((e) => {
-    $(".image-viewer img").attr("src", e.target.getAttribute("src"));
+    $("#image-viewer img").attr("src", e.target.getAttribute("src"));
     $("body").css("overflow-y", "hidden");
-    $(".image-viewer").show();
+    $("#image-viewer").show();
 });
 
 $(".close").click(() => {
     $("body").css("overflow-y", "auto");
-    $(".image-viewer").hide();
+    $("#image-viewer").hide();
 });
