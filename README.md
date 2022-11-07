@@ -1,2 +1,2 @@
 # Parallax
-A website for learning complex css stuff and other important things a web-dev needs to know.
+I'm just learning a few things about web design and throw them onto the page.
