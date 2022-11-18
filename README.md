@@ -27,12 +27,10 @@ My favorite shapes:
 This is a list:
 - I am a list
   - Inside a list
-    - Inside a list
+    - Inside a list:trollface:
 TODO:
 - [x] Live
 - [ ] Be productive
-
-@github/support: hi :octocat:
 
 This is a cat[^1]
 [^1]: Synonym for a**hole
