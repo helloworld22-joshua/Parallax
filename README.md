@@ -1,8 +1,10 @@
 # Parallax
 A website for learning complex css stuff and other important things a web-dev needs to know.
+
+Notes:
 # Heading 1
 ## Heading 2
-### Heading 3
+###### Heading 6
 **Bold**, *Italic*, ~~Strikethrough~~, <sup>Superscript</sup>, <sub>Subscript</sub>
 >"Mu Dongo hu Domo"
 ```javascript
@@ -29,3 +31,7 @@ This is a list:
 TODO:
 - [x] Live
 - [ ] Be productive
+
+@helloworld22-joshua: f*** u :octocat:
+This is a cat[^1]
+[^1]: Synonym for a**hole
