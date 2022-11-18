@@ -3,4 +3,5 @@ A website for learning complex css stuff and other important things a web-dev ne
 # Heading 1
 ## Heading 2
 ### Heading 3
-**Bold**, *Italic*, ~~Strikethrough~~, 	<sub>Subscript</sub>
+**Bold**, *Italic*, ~~Strikethrough~~, <sup>Superscript</sup>, <sub>Subscript</sub>
+>Quote
