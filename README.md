@@ -4,4 +4,8 @@ A website for learning complex css stuff and other important things a web-dev ne
 ## Heading 2
 ### Heading 3
 **Bold**, *Italic*, ~~Strikethrough~~, <sup>Superscript</sup>, <sub>Subscript</sub>
->Quote
+>"Mu Dongo hu Domo"
+```javascript
+function exampleFunc() { ... }
+```
+Primary color: `hsl(174 33% 61%)`
