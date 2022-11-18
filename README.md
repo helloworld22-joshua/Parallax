@@ -9,3 +9,5 @@ A website for learning complex css stuff and other important things a web-dev ne
 function exampleFunc() { ... }
 ```
 Primary color: `hsl(174 33% 61%)`
+[My profile](https://github.com/helloworld22-joshua)
+![Alt text](media/lake.webp)
