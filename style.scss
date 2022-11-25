@@ -130,7 +130,7 @@ nav {
                 }
     
                 &:hover::before {
-                    content: attr(name);
+                    content: attr(title);
                     width: 100%;
                     color: var(--pri);
                 }

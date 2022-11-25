@@ -112,7 +112,7 @@ nav .links li a::before {
   transition: var(--trns);
 }
 nav .links li a:hover::before {
-  content: attr(name);
+  content: attr(title);
   width: 100%;
   color: var(--pri);
 }
