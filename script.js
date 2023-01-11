@@ -1,11 +1,3 @@
-// Fixes links with sticky navbar
-$("a[href*='#']").click(function (e) {
-    e.preventDefault();
-    $("html").animate({
-        scrollTop: $($(this).attr("href")).offset().top - 100
-    }, 0);
-});
-
 // Toggle links in small menu (for phones)
 $(".menu").click(() => {
     $(".menu, .links").toggleClass("active");
