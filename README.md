@@ -6,7 +6,7 @@ Notes:
 ## Heading 2
 ###### Heading 6
 **Bold**, *Italic*, ~~Strikethrough~~, <sup>Superscript</sup>, <sub>Subscript</sub>
->"Mu Dongo hu Domo"
+>"Mu Dongo"
 ```javascript
 function exampleFunc() { ... }
 ```
